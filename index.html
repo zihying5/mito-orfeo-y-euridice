@@ -139,20 +139,35 @@
 
     /* painting area */
     .painting-area {
-      flex: 1;
       position: relative;
+      background: #f1f1f1;
+      height: 54vh;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
       overflow: hidden;
-      min-height: 0;
     }
-    .painting-area img {
-      width: 100%;
+
+    .frame-wrap {
       height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      transition: transform 8s ease;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .page.active .painting-area img { transform: scale(1.03); }
+    .frame-wrap img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      transition: transform 8s ease;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    }
+    .page.active .frame-wrap img { transform: scale(1.01); }
 
     /* museum label */
     .museum-label {
@@ -330,7 +345,10 @@
   <!-- PAGE 1 -->
   <div class="page" data-page="1">
     <div class="painting-area">
-      <img src="images/p1.jpg" alt="Paisaje con Orfeo y Eurídice — Nicolas Poussin" />
+      <div class="frame-wrap">
+        <img src="images/p1.jpg" alt="Paisaje con Orfeo y Eurídice — Nicolas Poussin" />
+      </div>
+      </div>
       <div class="museum-label">
         <div class="label-title">Paisaje con Orfeo y Eurídice</div>
         <div class="label-meta">
@@ -361,7 +379,9 @@
   <!-- PAGE 2 -->
   <div class="page" data-page="2">
     <div class="painting-area">
-      <img src="images/p2.jpg" alt="La muerte de Eurídice — Erasmus Quellinus" />
+      <div class="frame-wrap">
+        <img src="images/p2.jpg" alt="La muerte de Eurídice — Erasmus Quellinus" />
+      </div>
       <div class="museum-label">
         <div class="label-title">La Muerte de Eurídice</div>
         <div class="label-meta">
@@ -392,7 +412,9 @@
   <!-- PAGE 3 -->
   <div class="page" data-page="3">
     <div class="painting-area">
-      <img src="images/p3.jpg" alt="Orfeo y Eurídice en los Infiernos — Pieter Fris" />
+      <div class="frame-wrap">
+        <img src="images/p3.jpg" alt="Orfeo y Eurídice en los Infiernos — Pieter Fris" />
+      </div>
       <div class="museum-label">
         <div class="label-title">Orfeo y Eurídice en los Infiernos</div>
         <div class="label-meta">
@@ -424,7 +446,9 @@
   <!-- PAGE 4 -->
   <div class="page" data-page="4">
     <div class="painting-area">
-      <img src="images/p4.jpg" alt="Orfeo y Eurídice — Pedro Pablo Rubens y taller" />
+      <div class="frame-wrap">
+        <img src="images/p4.jpg" alt="Orfeo y Eurídice — Pedro Pablo Rubens y taller" />
+      </div>
       <div class="museum-label">
         <div class="label-title">Orfeo y Eurídice</div>
         <div class="label-meta">
@@ -457,7 +481,9 @@
   <!-- PAGE 5 -->
   <div class="page" data-page="5">
     <div class="painting-area">
-      <img src="images/p5.jpg" alt="Orpheus Leading Eurydice from the Underworld — Corot" />
+      <div class="frame-wrap">
+        <img src="images/p5.jpg" alt="Orpheus Leading Eurydice from the Underworld — Corot" />
+      </div>
       <div class="museum-label">
         <div class="label-title">Orpheus Leading Eurydice from the Underworld</div>
         <div class="label-meta">
