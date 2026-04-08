@@ -277,12 +277,7 @@
       gap: 0.3rem;
     }
     .audio-btn:hover { color: var(--brown); transform: scale(1.1); }
-    .audio-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.6rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
+    .audio-btn { font-size: 1.3rem; }
 
     /* end screen */
     #end-screen {
@@ -347,7 +342,7 @@
     <div class="cover-subtitle">un mito griego · nivel A1</div>
     <div class="cover-divider"></div>
     <div class="cover-buttons">
-      <button class="btn-audio-cover" onclick="playAudio('titulo')">🔊 </button>
+      <button class="btn-audio-cover" onclick="playAudio('titulo')">🔊</button>
       <button class="btn-start" onclick="startReading()">▶ Empezar a leer</button>
     </div>
   </div>
@@ -379,10 +374,10 @@
       </p>
     </div>
     <div class="controls">
-      <button class="nav-btn" onclick="prevPage()" disabled>← Anterior</button>
+      <button class="nav-btn" onclick="goToCover()">← Inicio</button>
       <div style="display:flex;align-items:center;gap:1rem;">
         <button class="audio-btn" onclick="playAudio('p1')">
-          <span>🔊</span><span class="audio-label">Escuchar</span>
+          🔊
         </button>
         <span class="page-counter">1 / 5</span>
       </div>
@@ -415,7 +410,7 @@
       <button class="nav-btn" onclick="prevPage()">← Anterior</button>
       <div style="display:flex;align-items:center;gap:1rem;">
         <button class="audio-btn" onclick="playAudio('p2')">
-          <span>🔊</span><span class="audio-label">Escuchar</span>
+          🔊
         </button>
         <span class="page-counter">2 / 5</span>
       </div>
@@ -449,7 +444,7 @@
       <button class="nav-btn" onclick="prevPage()">← Anterior</button>
       <div style="display:flex;align-items:center;gap:1rem;">
         <button class="audio-btn" onclick="playAudio('p3')">
-          <span>🔊</span><span class="audio-label">Escuchar</span>
+          🔊
         </button>
         <span class="page-counter">3 / 5</span>
       </div>
@@ -484,7 +479,7 @@
       <button class="nav-btn" onclick="prevPage()">← Anterior</button>
       <div style="display:flex;align-items:center;gap:1rem;">
         <button class="audio-btn" onclick="playAudio('p4')">
-          <span>🔊</span><span class="audio-label">Escuchar</span>
+          🔊
         </button>
         <span class="page-counter">4 / 5</span>
       </div>
@@ -518,7 +513,7 @@
       <button class="nav-btn" onclick="prevPage()">← Anterior</button>
       <div style="display:flex;align-items:center;gap:1rem;">
         <button class="audio-btn" onclick="playAudio('p5')">
-          <span>🔊</span><span class="audio-label">Escuchar</span>
+          🔊
         </button>
         <span class="page-counter">5 / 5</span>
       </div>
@@ -532,7 +527,7 @@
     <div class="end-question">
       ¿Por qué crees que Orfeo miró atrás?
     </div>
-    <button class="btn-restart" onclick="restartStory()">↩ Leer otra vez</button>
+    <button class="btn-restart" onclick="goToCover()">↩ Volver al inicio</button>
   </div>
 </div>
 
@@ -571,6 +566,16 @@
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('end-screen').classList.add('active');
     updateProgress(true);
+  }
+
+  function goToCover() {
+    stopAudio();
+    document.getElementById('cover').classList.remove('hidden');
+    document.getElementById('reader').classList.remove('visible');
+    document.getElementById('end-screen').classList.remove('active');
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    currentPage = 1;
+    updateProgress();
   }
 
   function restartStory() {
